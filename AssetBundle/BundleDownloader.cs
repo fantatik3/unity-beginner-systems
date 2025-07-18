@@ -13,6 +13,7 @@ public class BundleDownloader : MonoBehaviour
 
     //For Testing purposes
     [SerializeField] private bool clearCache = false;
+    
     [Serializable]
     public class BundleHashEntry
     {
