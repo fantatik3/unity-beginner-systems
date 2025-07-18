@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class AssetBundleHashExporter
 {
-    [MenuItem("Sema-Tools/Export Bundle Hashes")]
+    [MenuItem("Sema-Tools/Export Bundle & Hashes")]
     public static void ExportBundleHashes()
     {
         string bundleDir = "AssetBundles";
