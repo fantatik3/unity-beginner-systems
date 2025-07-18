@@ -1,7 +1,7 @@
 
 # Unity Helpers
 
-This repository contains a collection of commonly used helper classes for the Unity Engine.
+This repository contains a collection of commonly used helper classes for the Unity Engine that work as example for your projects.
 
 
 ## Index
