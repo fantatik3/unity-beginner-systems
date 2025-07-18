@@ -18,7 +18,7 @@ A basic class to build AssetBundles and create a JSON hash list for later downlo
 
 > **Note:** Unity now provides [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@latest) as a high-level API to manage remote content. It is recommended to use Addressables instead of handling AssetBundles manually in most cases.
 
-#### 🛠 Setup Instructions
+#### Setup Instructions
 
 1. **Create a GameObject**  
    - Add a new GameObject in your scene.  
