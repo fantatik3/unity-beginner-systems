@@ -4,7 +4,7 @@ This repository contains a collection of commonly used helper classes for the Un
 
 ## Index
 
-### AssetBundle
+### Asset Bundle Manager
 A basic class to build AssetBundles and create a JSON hash list for later download.
 [AssetBundles - Unity Manual](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
 
