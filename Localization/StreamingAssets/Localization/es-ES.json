@@ -1,0 +1,30 @@
+{
+  "MainMenu": {
+    "title": "Bienvenido",
+    "start": "Iniciar Juego",
+    "continue": "Continuar",
+    "exit": "Salir"
+  },
+  "OptionsMenu": {
+    "title": "Configuración",
+    "interfaceScale": "Escala de Interfaz",
+    "language": "Idioma",
+    "notification": "Notificaciones",
+    "enabled": "Activado",
+    "disabled": "Desactivado",
+    "soundeffect": "Volumen de Efectos",
+    "notificationvolume": "Volumen de Notificaciones",
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "Tooltips": {
+    "scaleSlider": "Ajusta el tamaño de la interfaz de usuario.",
+    "languageSelect": "Elige tu idioma preferido."
+  },
+  "TrayMenu": {
+    "open": "Abrir",
+    "settings": "Configurar",
+    "help": "Ayuda",
+    "quit": "Salir"
+  }
+}
