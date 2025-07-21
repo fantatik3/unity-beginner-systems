@@ -1,4 +1,5 @@
 
+
 # Unity Helpers
 
 This repository contains a collection of commonly used helper classes for the Unity Engine that work as example for your projects.
@@ -9,6 +10,7 @@ This repository contains a collection of commonly used helper classes for the Un
 - [AssetBundle](#assetbundle)
 - [Singleton\<T\>](#singletont)
 - [SceneLoader](#sceneloader)
+- [Localization](#localization)
 
 ---
 
@@ -124,4 +126,71 @@ SceneLoader.Instance.LoadScene("MainMenu", useLoadingScene: true);
 // Load "Level1" scene directly
 SceneLoader.Instance.LoadScene("Level1");
 ```
+---
+
+### LocalizationManager
+
+A minimal, extensible localization system for Unity supporting multiple languages via structured JSON files.
+
+#### Features
+
+- Loads language-specific JSON files from `StreamingAssets/Localization/`.
+- Fast key-based lookup with section support: `Translate(section, key)`.
+- Uses `Newtonsoft.Json` for modern JSON parsing.
+- Supports fallback for missing keys.
+- Simple integration with UI and game state.
+
+---
+
+### Setup
+
+1. Place language files (e.g., `en-US.json`, `es-ES.json`) in `Assets/StreamingAssets/Localization/`.
+2. Ensure each file matches this structure:
+
+```json
+{
+  "MainMenu": {
+    "title": "Welcome",
+    "start": "Start Game"
+  },
+  "OptionsMenu": {
+    "language": "Language",
+    "save": "Save"
+  }
+}
+```
+
+3. Call `LocalizationManager.LoadLanguage("en-US")` to initialize.
+
+---
+
+### Usage
+
+#### Initialization
+
+```csharp
+LocalizationManager localizationManager = new LocalizationManager();
+localizationManager.LoadLanguage("en-US");
+```
+
+#### Lookup
+
+```csharp
+string startLabel = localizationManager.Translate("MainMenu", "start");
+// Returns: "Start Game"
+```
+
+#### Dynamic UI Example
+
+```csharp
+titleText.text = localizationManager.Translate("MainMenu", "title");
+saveButtonText.text = localizationManager.Translate("OptionsMenu", "save");
+```
+
+### Notes
+
+- Missing keys return `"[?Section.Key]"` for debugging.
+- Ensure JSON keys and casing match exactly (use `Trim()` on lookups if needed).
+- Use `LanguageRegistry` to manage display names, codes, and dropdown binding.
+
 ---
