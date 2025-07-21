@@ -190,7 +190,5 @@ saveButtonText.text = localizationManager.Translate("OptionsMenu", "save");
 ### Notes
 
 - Missing keys return `"[?Section.Key]"` for debugging.
-- Ensure JSON keys and casing match exactly (use `Trim()` on lookups if needed).
-- Use `LanguageRegistry` to manage display names, codes, and dropdown binding.
 
 ---
