@@ -10,7 +10,7 @@ This repository contains a collection of commonly used helper classes for the Un
 - [AssetBundle](#assetbundle)
 - [Singleton\<T\>](#singletont)
 - [SceneLoader](#sceneloader)
-- [Localization](#localization)
+- [LocalizationManager](#localizationmanager)
 
 ---
 
