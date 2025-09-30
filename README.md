@@ -163,8 +163,6 @@ A minimal, extensible localization system for Unity supporting multiple language
 
 3. Call `LocalizationManager.LoadLanguage("en-US")` to initialize.
 
----
-
 ### Usage
 
 #### Initialization
