@@ -191,9 +191,7 @@ saveButtonText.text = localizationManager.Translate("OptionsMenu", "save");
 - Missing keys return `"[?Section.Key]"` for debugging.
 
 ---
-
-
-#### InteractableObjects
+### InteractableObjects
 
 A modular system for interacting with 3D objects in first-person games (e.g., doors, items, inspectables).
 Includes raycast-based interaction, interfaces, and a plug-and-play item inspection system similar to those in horror games like Resident Evil or Visage.
