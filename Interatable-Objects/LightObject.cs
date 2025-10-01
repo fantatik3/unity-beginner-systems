@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightObject : MonoBehaviour, IInteractable
+public class LightObject : InteractableBase, IInteractable
 {
     private Light lightComponent;
 
@@ -12,7 +12,7 @@ public class LightObject : MonoBehaviour, IInteractable
             Debug.LogError("No Light component found on this GameObject.");
         }
     }
-    public void Interact()
+    public override void Interact()
     {
         Debug.Log("Interacted with light!");
         if (lightComponent != null)
