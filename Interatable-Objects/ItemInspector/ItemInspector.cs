@@ -3,11 +3,11 @@ using UnityEngine;
 public class ItemInspector : Singleton<ItemInspector>
 {
     public Transform inspectionPoint;
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 3f;
 
-    public float zoomSpeed = 0.5f;
-    public float minZoom = 0.5f;
-    public float maxZoom = 2f;
+    public float zoomSpeed = 0.2f;
+    public float minZoom = 0.8f;
+    public float maxZoom = 1.5f;
 
     float currentZoom = 1f;
     Vector3 basePosition;
@@ -31,11 +31,11 @@ public class ItemInspector : Singleton<ItemInspector>
             currentItem.transform.Rotate(Vector3.up, -rotX, Space.World);
             currentItem.transform.Rotate(Vector3.right, rotY, Space.World);
 
-            // Mouse scroll zoom
+
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (Mathf.Abs(scroll) > 0.01f)
             {
-                currentZoom = Mathf.Clamp(currentZoom - scroll * zoomSpeed, minZoom, maxZoom);
+                currentZoom = Mathf.Clamp(currentZoom - scroll * zoomSpeed, minZoom, 1f);
                 currentItem.transform.position = basePosition + inspectionPoint.forward * (currentZoom - 1f);
             }
 
@@ -47,7 +47,7 @@ public class ItemInspector : Singleton<ItemInspector>
         }
     }
 
-    public void Inspect(InspectableItem item)
+    public void Inspect(InspectableObject item)
     {
         if (isInspecting) return;
 
