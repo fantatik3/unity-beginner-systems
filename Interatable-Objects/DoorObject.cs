@@ -1,44 +1,56 @@
 using UnityEngine;
 
-public class DoorObject : MonoBehaviour, IInteractable
+public class DoorObject : InteractableBase, IInteractable
 {
     public Transform hinge;
     public float openAngle = 90f;
     public float openSpeed = 2f;
+    public bool openToLeft = false; // false = right (positive angle), true = left (negative angle)
 
     private bool isOpen = false;
-    private float currentAngle = 0f;
-    private float targetAngle = 0f;
+    private Quaternion closedRotation;
+    private Quaternion openRotation;
+    private Quaternion targetRotation;
+    private bool isRotating = false;
 
-
-    public void Start()
+    private void Start()
     {
         if (hinge == null)
         {
-            Debug.LogError("Hinge Transform is not assigned.");
+            Debug.LogError("Hinge Transform is not assigned.", this);
+            enabled = false;
+            return;
+        }
+
+        float angle = openToLeft ? -openAngle : openAngle;
+
+        closedRotation = hinge.rotation;
+        openRotation = Quaternion.AngleAxis(angle, Vector3.up) * closedRotation;
+        targetRotation = closedRotation;
+    }
+
+    private void Update()
+    {
+        if (!isRotating) return;
+
+        hinge.rotation = Quaternion.RotateTowards(
+            hinge.rotation,
+            targetRotation,
+            openSpeed * Time.deltaTime * 100f
+        );
+
+        if (Quaternion.Angle(hinge.localRotation, targetRotation) < 0.1f)
+        {
+            hinge.localRotation = targetRotation;
+            isRotating = false;
         }
     }
 
-    public void Update()
+    public override void Interact()
     {
-        if (isOpen)
-        {
-            currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime * openSpeed);
-            hinge.localRotation = Quaternion.Euler(0f, currentAngle, 0f);
-        }
-        else
-        {
-            currentAngle = Mathf.Lerp(currentAngle, 0f, Time.deltaTime * openSpeed);
-            hinge.localRotation = Quaternion.Euler(0f, currentAngle, 0f);
-        }
-    }
-
-
-
-    public void Interact()
-    {
-        Debug.Log("Interacted with door!");
         isOpen = !isOpen;
-        targetAngle = isOpen ? openAngle : 0f;
+        targetRotation = isOpen ? openRotation : closedRotation;
+        isRotating = true;
+        Debug.Log($"Door {(isOpen ? "opened" : "closed")}.", this);
     }
 }
