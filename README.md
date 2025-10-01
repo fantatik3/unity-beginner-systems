@@ -13,5 +13,5 @@ Whether you're just starting out or need quick plug-and-play solutions, Unity He
 - [Singleton\<T\>](Singleton/)
 - [LocalizationManager](Localization/)
 - [InteractableObjects](Interatable-Objects/)
-- [Model Extraction](Unity%20Editor%20Tools/Models/)
+- [Model Extraction Tools](Unity%20Editor%20Tools/Models/)
 ---
