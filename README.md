@@ -12,6 +12,6 @@ Whether you're just starting out or need quick plug-and-play solutions, Unity He
 - [SceneLoader](SceneLoader/)
 - [Singleton\<T\>](Singleton/)
 - [LocalizationManager](Localization/)
-- [InteractableObjects](Interatable-Objects/)
+- [InteractableObjects](Interatacble-Objects/)
 - [Model Extraction Tools](Unity%20Editor%20Tools/Models/)
 ---
